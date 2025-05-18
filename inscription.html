@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inscription – E.B.Histoire</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 600px;
+      margin: 50px auto;
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      margin-top: 20px;
+      background-color: #3498db;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 100%;
+    }
+    button:hover {
+      background-color: #2980b9;
+    }
+    .confirmation {
+      display: none;
+      margin-top: 20px;
+      background-color: #dff0d8;
+      color: #3c763d;
+      padding: 15px;
+      border-radius: 5px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Formulaire d'inscription</h1>
+    <form id="formulaire-inscription">
+      <label for="nom">Nom :</label>
+      <input type="text" id="nom" name="Nom" required>
+
+      <label for="prenom">Prénom :</label>
+      <input type="text" id="prenom" name="Prénom" required>
+
+      <label for="email">Email :</label>
+      <input type="email" id="email" name="Email" required>
+
+      <label for="telephone">Numéro de téléphone :</label>
+      <input type="tel" id="telephone" name="Téléphone" required>
+
+      <label for="age">Âge :</label>
+      <input type="number" id="age" name="Âge" required>
+
+      <label for="sexe">Sexe :</label>
+      <select id="sexe" name="Sexe" required>
+        <option value="Homme">Homme</option>
+        <option value="Femme">Femme</option>
+        <option value="Autre">Autre</option>
+      </select>
+
+      <label for="poids">Poids (en kg) :</label>
+      <input type="number" id="poids" name="Poids" required>
+
+      <label for="taille">Taille (en cm) :</label>
+      <input type="number" id="taille" name="Taille" required>
+
+      <label for="nationalite">Nationalité :</label>
+      <input type="text" id="nationalite" name="Nationalité" required>
+
+      <label for="formation">Formation choisie :</label>
+      <select id="formation" name="Formation">
+        <option value="IA">Développer son monde avec l’IA</option>
+        <option value="Muscle">Devenir musclé rapidement</option>
+        <option value="Poids">Prendre du poids naturellement</option>
+        <option value="Cuisine">Apprendre à cuisiner</option>
+        <option value="Homme">Comment devenir un vrai homme</option>
+      </select>
+
+      <label for="message">Message (facultatif) :</label>
+      <textarea id="message" name="Message" rows="4"></textarea>
+
+      <button type="submit">Valider</button>
+    </form>
+
+    <div class="confirmation" id="confirmation">
+      Merci pour votre inscription ! Vous recevrez une confirmation par email ou WhatsApp bientôt.
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("formulaire-inscription").addEventListener("submit", function(e) {
+      e.preventDefault();
+      document.getElementById("confirmation").style.display = "block";
+    });
+  </script>
+</body>
+</html>
