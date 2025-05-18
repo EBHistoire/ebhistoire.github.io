@@ -55,7 +55,7 @@
     function verifierCode() {
       const codeSaisi = document.getElementById("code").value.trim();
       if (codes.includes(codeSaisi)) {
-        window.location.href = "formations_secretes.html?code=" + codeSaisi;
+        window.location.href = "formations_secrets.html?code=" + codeSaisi;
       } else {
         document.getElementById("erreur").innerText = "Code invalide ou non reconnu.";
       }
