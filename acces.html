@@ -21,14 +21,25 @@
 </head>
 <body>
   <h2>Entrez votre code d'accès</h2>
-  <form action="verif_code.php" method="POST">
-    <input type="text" name="code" placeholder="Votre code" required>
-    <br>
-    <button type="submit">Valider</button>
-  </form>
-  <p class="erreur">
-    <!-- Si le code est invalide, verif_code.php renverra ici avec un message -->
-    <?php if (isset($_GET['erreur'])) echo "Code invalide."; ?>
-  </p>
+  <input type="text" id="code" placeholder="Votre code" required>
+  <br>
+  <button onclick="verifierCode()">Valider</button>
+  <p class="erreur" id="erreurMsg"></p>
+
+  <script>
+    const codesAutorises = ["EB001", "EB002", "EB003", "EB004"];
+
+    function verifierCode() {
+      const codeEntre = document.getElementById("code").value.trim();
+      const erreurMsg = document.getElementById("erreurMsg");
+
+      if (codesAutorises.includes(codeEntre)) {
+        localStorage.setItem("code_acces", codeEntre); // mémorise le code
+        window.location.href = "formations_secretes.html";
+      } else {
+        erreurMsg.textContent = "Code invalide.";
+      }
+    }
+  </script>
 </body>
 </html>
