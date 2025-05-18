@@ -1,3 +1,10 @@
+<script>
+  const code = localStorage.getItem("code_acces");
+  const codesAutorises = ["EB001", "EB002", "EB003", "EB004"];
+  if (!codesAutorises.includes(code)) {
+    window.location.href = "acces.html";
+  }
+</script>
 <?php
 session_start();
 if (!isset($_SESSION['code_acces'])) {
