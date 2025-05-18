@@ -41,12 +41,21 @@
   <div id="erreur"></div>
 
   <script>
-    // Liste des codes autorisés (à mettre à jour manuellement)
-    const codesAutorises = ["EB001", "EB002", "EB003", "EB004"];
+    let codes = [];
+
+    // Charger les codes depuis le fichier JSON
+    fetch('codes_autorises.json')
+      .then(response => response.json())
+      .then(data => {
+        codes = data;
+      })
+      .catch(error => {
+        document.getElementById("erreur").innerText = "Erreur de chargement des codes.";
+      });
 
     function verifierCode() {
       const codeSaisi = document.getElementById("code").value.trim();
-      if (codesAutorises.includes(codeSaisi)) {
+      if (codes.includes(codeSaisi)) {
         window.location.href = "formations_secretes.html";
       } else {
         document.getElementById("erreur").innerText = "Code invalide ou non reconnu.";
