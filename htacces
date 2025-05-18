@@ -1,0 +1,8 @@
+# Empêche l'accès direct aux fichiers PHP (sauf les pages publiques)
+<FilesMatch "verif_code.php|codes_autorises.json">
+  Order deny,allow
+  Deny from all
+</FilesMatch>
+
+# Redirige tout vers acces.html si besoin
+DirectoryIndex acces.html
