@@ -36,14 +36,13 @@
 <body>
 
   <h2>Entrer votre code personnel</h2>
-  <input type="text" id="code" placeholder="Ex: EB2025001" />
+  <input type="text" id="code" placeholder="Ex: EB001" />
   <button onclick="verifierCode()">Valider</button>
   <div id="erreur"></div>
 
   <script>
     let codes = [];
 
-    // Charger les codes depuis le fichier JSON
     fetch('codes_autorises.json')
       .then(response => response.json())
       .then(data => {
@@ -56,7 +55,7 @@
     function verifierCode() {
       const codeSaisi = document.getElementById("code").value.trim();
       if (codes.includes(codeSaisi)) {
-        window.location.href = "formations_secretes.html";
+        window.location.href = "formations_secretes.html?code=" + codeSaisi;
       } else {
         document.getElementById("erreur").innerText = "Code invalide ou non reconnu.";
       }
