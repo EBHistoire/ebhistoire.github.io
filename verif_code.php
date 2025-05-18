@@ -9,7 +9,7 @@ $code = $_POST['code'] ?? '';
 
 if (in_array($code, $codes_autorises)) {
     $_SESSION['code_acces'] = $code;
-    header("Location: formations_secretes.php");
+    header("Location: formations_secrets.php");
     exit;
 } else {
     header("Location: acces.html?erreur=1");
