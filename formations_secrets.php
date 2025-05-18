@@ -4,13 +4,10 @@ if (!isset($_SESSION['code_acces'])) {
     header("Location: acces.html");
     exit;
 }
-?>
-
-<!DOCTYPE html>
-<html lang="fr">
+?><!DOCTYPE html><html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Formations Secrètes</title>
+  <title>Formations Secrets</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -47,24 +44,21 @@ if (!isset($_SESSION['code_acces'])) {
       height: 400px;
       border: none;
       border-radius: 10px;
-    }
+    }@media (orientation: landscape) {
+  iframe {
+    height: 500px;
+  }
+}
 
-    @media (orientation: landscape) {
-      iframe {
-        height: 500px;
-      }
-    }
+input[type="search"] {
+  width: 60%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
 
-    input[type="search"] {
-      width: 60%;
-      padding: 10px;
-      margin-bottom: 20px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-    }
-  </style>
-
-  <script>
+  </style>  <script>
     function showVideo(id) {
       document.querySelectorAll('.video').forEach(v => v.style.display = 'none');
       document.getElementById(id).style.display = 'block';
@@ -77,29 +71,18 @@ if (!isset($_SESSION['code_acces'])) {
         tab.style.display = texte.includes(recherche) ? "inline-block" : "none";
       });
     }
-  </script>
-</head>
-<body>
-
-  <h1>Bienvenue dans les Formations Secrètes</h1>
-
-  <input type="search" id="search" placeholder="Rechercher une formation..." oninput="rechercher()">
-
-  <div class="tabs">
+  </script></head>
+<body>  <h1>Bienvenue dans les Formations Secrets</h1>  <input type="search" id="search" placeholder="Rechercher une formation..." oninput="rechercher()">  <div class="tabs">
     <div class="tab" onclick="showVideo('ia')">IA</div>
     <div class="tab" onclick="showVideo('muscle')">Muscle</div>
     <div class="tab" onclick="showVideo('poids')">Poids</div>
     <div class="tab" onclick="showVideo('cuisine')">Cuisine</div>
     <div class="tab" onclick="showVideo('homme')">Vrai Homme</div>
     <div class="tab" onclick="showVideo('draguer')">Draguer</div>
-  </div>
-
-  <div id="ia" class="video"><iframe src="https://www.youtube.com/embed/VIDEO_ID1" allowfullscreen></iframe></div>
+  </div>  <div id="ia" class="video"><iframe src="https://www.youtube.com/embed/VIDEO_ID1" allowfullscreen></iframe></div>
   <div id="muscle" class="video"><iframe src="https://www.youtube.com/embed/VIDEO_ID2" allowfullscreen></iframe></div>
   <div id="poids" class="video"><iframe src="https://www.youtube.com/embed/VIDEO_ID3" allowfullscreen></iframe></div>
   <div id="cuisine" class="video"><iframe src="https://www.youtube.com/embed/VIDEO_ID4" allowfullscreen></iframe></div>
   <div id="homme" class="video"><iframe src="https://www.youtube.com/embed/VIDEO_ID5" allowfullscreen></iframe></div>
-  <div id="draguer" class="video"><iframe src="https://www.youtube.com/embed/VIDEO_ID6" allowfullscreen></iframe></div>
-
-</body>
+  <div id="draguer" class="video"><iframe src="https://www.youtube.com/embed/VIDEO_ID6" allowfullscreen></iframe></div></body>
 </html>
