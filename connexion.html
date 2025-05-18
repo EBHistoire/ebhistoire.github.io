@@ -3,91 +3,63 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Connexion – EB.Histoire</title>
+  <title>Connexion – E.B.Histoire</title>
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(to bottom, #ecf0f1, #ffffff);
+      background: linear-gradient(to right, #ece9e6, #ffffff);
       display: flex;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
       height: 100vh;
       margin: 0;
-      color: #2c3e50;
     }
-    .login-container {
-      background: white;
-      padding: 30px 40px;
-      border-radius: 12px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-      width: 320px;
-      text-align: center;
+    .form-container {
+      background: #fff;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
     }
     h1 {
-      margin-bottom: 25px;
-      color: #27ae60;
+      text-align: center;
+      color: #2980b9;
     }
-    input[type="email"], input[type="password"], input[type="text"] {
+    input[type="text"], input[type="password"] {
       width: 100%;
       padding: 12px;
-      margin: 12px 0;
-      border: 1px solid #ccc;
+      margin: 10px 0;
       border-radius: 6px;
-      font-size: 1em;
+      border: 1px solid #ccc;
     }
     button {
-      background-color: #27ae60;
+      width: 100%;
+      padding: 12px;
+      background-color: #3498db;
       color: white;
       border: none;
-      padding: 12px;
-      font-size: 1em;
       border-radius: 6px;
+      font-size: 16px;
       cursor: pointer;
-      width: 100%;
-      margin-top: 15px;
+      margin-top: 10px;
     }
     button:hover {
-      background-color: #1e874b;
-    }
-    .info {
-      margin-top: 20px;
-      font-size: 0.9em;
-      color: #555;
+      background-color: #2980b9;
     }
   </style>
 </head>
 <body>
 
-  <div class="login-container">
+  <div class="form-container">
     <h1>Connexion</h1>
-    <form id="loginForm">
-      <input type="email" id="email" name="email" placeholder="Votre email" required />
-      <input type="text" id="code" name="code" placeholder="Votre code personnel" required />
+    <form action="acces.html" method="GET">
+      <input type="text" name="identifiant" placeholder="Nom d'utilisateur ou email" required />
+      <input type="password" name="motdepasse" placeholder="Mot de passe" required />
+      <input type="text" name="code" placeholder="Code personnel" required />
       <button type="submit">Se connecter</button>
     </form>
-    <div class="info">
-      Entrez votre email et votre code personnel reçu lors de l'inscription pour accéder à vos formations.
-    </div>
   </div>
-
-  <script>
-    document.getElementById('loginForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const email = e.target.email.value.trim();
-      const code = e.target.code.value.trim();
-
-      // Exemple simple : afficher email + code en console (à remplacer par ta logique)
-      console.log("Email:", email);
-      console.log("Code personnel:", code);
-
-      // Ici, tu peux faire une requête vers ton backend pour vérifier le code,
-      // ou stocker en local, puis rediriger vers la page formations si validé.
-
-      // Pour l'exemple, on simule la validation et redirige vers la page formations
-      alert("Connexion réussie !");
-      window.location.href = "liste_des_formations.html"; 
-    });
-  </script>
 
 </body>
 </html>
