@@ -1,0 +1,96 @@
+<!DOCTYPE html><html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Connexion – E.B.Histoire</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #ecf0f1, #ffffff);
+      margin: 0;
+      padding: 0;
+    }
+    nav {
+      background-color: #2c3e50;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 8px 15px;
+      border-radius: 5px;
+    }
+    nav a:hover {
+      background-color: #34495e;
+    }
+    .container {
+      max-width: 600px;
+      margin: 50px auto;
+      background-color: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #2980b9;
+    }
+    label {
+      display: block;
+      margin-bottom: 10px;
+      color: #2c3e50;
+      font-weight: bold;
+    }
+    input[type="text"],
+    input[type="email"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    button {
+      background-color: #27ae60;
+      color: white;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      width: 100%;
+    }
+    button:hover {
+      background-color: #219150;
+    }
+    .note {
+      margin-top: 20px;
+      color: #c0392b;
+      font-size: 14px;
+      text-align: center;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>  <nav>
+    <a href="index.html">Accueil</a>
+    <a href="formations.html">Formations</a>
+    <a href="inscription.html">S'inscrire</a>
+  </nav>  <div class="container">
+    <h1>Connexion</h1>
+    <form action="#" method="post">
+      <label for="email">Adresse Email</label>
+      <input type="email" id="email" name="email" required><label for="code">Code personnel</label>
+  <input type="text" id="code" name="code" placeholder="Entrez votre code" required>
+
+  <button type="submit">Valider et voir mes formations</button>
+</form>
+<div class="note">
+  Veuillez entrer le code personnel reçu après l'inscription pour accéder aux formations sélectionnées.
+</div>
+
+  </div></body>
+</html>
