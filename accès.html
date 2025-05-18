@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Accès aux Formations</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      max-width: 400px;
+      margin: auto;
+      text-align: center;
+    }
+    input, button {
+      padding: 12px;
+      margin-top: 15px;
+      width: 100%;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background-color: #2ecc71;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #27ae60;
+    }
+    #erreur {
+      color: red;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Entrer votre code personnel</h2>
+  <input type="text" id="code" placeholder="Ex: EB2025001" />
+  <button onclick="verifierCode()">Valider</button>
+  <div id="erreur"></div>
+
+  <script>
+    // Liste des codes autorisés (à mettre à jour manuellement)
+    const codesAutorises = ["EB001", "EB002", "EB003", "EB004"];
+
+    function verifierCode() {
+      const codeSaisi = document.getElementById("code").value.trim();
+      if (codesAutorises.includes(codeSaisi)) {
+        window.location.href = "formations_secretes.html";
+      } else {
+        document.getElementById("erreur").innerText = "Code invalide ou non reconnu.";
+      }
+    }
+  </script>
+
+</body>
+</html>
