@@ -4,34 +4,71 @@
   <meta charset="UTF-8" />
   <title>Paiement - EBHistoire</title>
   <style>
-    body { font-family: Arial; padding: 20px; }
-    input { width: 100%; padding: 8px; margin-top: 5px; }
-    button { margin-top: 10px; padding: 10px 20px; }
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      max-width: 500px;
+      margin: auto;
+    }
+    h1 {
+      color: #2c3e50;
+    }
+    input, select, button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background-color: #2980b9;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #3498db;
+    }
+    .note {
+      margin-top: 25px;
+      background-color: #fefae0;
+      padding: 15px;
+      border-left: 5px solid #e67e22;
+      font-size: 15px;
+    }
   </style>
 </head>
 <body>
-  <h1>Valider votre paiement</h1>
-  <p>Entrez votre code personnel :</p>
 
-  <input type="text" id="code" placeholder="Ex: EB1234" required />
-  <button onclick="valider()">Valider</button>
+  <h1>Validation du Paiement</h1>
 
-  <p id="message" style="margin-top: 20px; font-weight: bold;"></p>
+  <form action="https://formsubmit.co/bulembierik@gmail.com" method="POST">
+    <label for="code">Code personnel :</label>
+    <input type="text" id="code" name="code_personnel" placeholder="Ex: EB1234" required />
 
-  <script>
-    function valider() {
-      const code = document.getElementById('code').value.trim();
-      if (code === '') {
-        alert("Veuillez entrer un code.");
-        return;
-      }
+    <label for="statut">Statut de paiement :</label>
+    <select id="statut" name="statut_paiement" required>
+      <option value="">-- Sélectionner --</option>
+      <option value="Payé">Payé</option>
+      <option value="Non payé">N’est pas payé</option>
+    </select>
 
-      document.getElementById('message').innerHTML = `
-        Merci !<br>
-        Veuillez maintenant contacter <strong>bulembierik@gmail.com</strong> pour confirmer votre inscription et effectuer le paiement.<br>
-        N'oubliez pas de transmettre votre code : <strong>${code}</strong>.
-      `;
-    }
-  </script>
+    <!-- Anti-spam -->
+    <input type="hidden" name="_captcha" value="false">
+
+    <!-- Redirection après validation -->
+    <input type="hidden" name="_next" value="https://ebhistoire.github.io/merci.html">
+
+    <button type="submit">Envoyer</button>
+  </form>
+
+  <div class="note">
+    Nous ne sommes pas disponibles pour le paiement en ligne,  
+    mais nous sommes disponibles pour le paiement sur d'autres plateformes.<br><br>
+    Si vous voulez avoir accès à nos informations,  
+    veuillez nous contacter sur notre Gmail :  
+    <strong>bulembierik@gmail.com</strong>
+  </div>
+
 </body>
 </html>
