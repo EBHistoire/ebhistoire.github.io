@@ -1,8 +1,20 @@
-# Empêche l'accès direct aux fichiers PHP (sauf les pages publiques)
-<FilesMatch "verif_code.php|codes_autorises.json">
-  Order deny,allow
+# 1. Interdire l’accès au fichier codes_autorises.json
+<Files "codes_autorises.json">
+  Order allow,deny
+  Deny from all
+</Files>
+
+# 2. Interdire tous les fichiers sensibles (.json, .ini, .log, .bak)
+<FilesMatch "\.(json|ini|log|sh|bak)$">
+  Order allow,deny
   Deny from all
 </FilesMatch>
 
-# Redirige tout vers acces.html si besoin
-DirectoryIndex acces.html
+# 3. Interdire l’accès au fichier .htaccess lui-même
+<Files .htaccess>
+  Order allow,deny
+  Deny from all
+</Files>
+
+# 4. Empêcher l’indexation du dossier (pas de liste de fichiers visibles)
+Options -Indexes
