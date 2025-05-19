@@ -1,6 +1,0 @@
-# Bloquer l'accès à tous les fichiers de ce dossier
-Order deny,allow
-Deny from all
-
-# Page personnalisée si accès refusé
-ErrorDocument 403 /erreur403.html
