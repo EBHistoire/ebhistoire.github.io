@@ -2,44 +2,65 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Accès sécurisé</title>
+  <title>Accès aux Formations</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      padding: 40px;
+      padding: 30px;
+      max-width: 400px;
+      margin: auto;
       text-align: center;
     }
     input, button {
-      padding: 10px;
-      width: 300px;
-      margin: 10px 0;
+      padding: 12px;
+      margin-top: 15px;
+      width: 100%;
+      border-radius: 5px;
+      border: 1px solid #ccc;
     }
-    .erreur {
+    button {
+      background-color: #2ecc71;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #27ae60;
+    }
+    #erreur {
       color: red;
+      margin-top: 15px;
     }
   </style>
 </head>
 <body>
-  <h2>Entrez votre code d'accès</h2>
-  <input type="text" id="code" placeholder="Votre code" required>
-  <br>
+
+  <h2>Entrer votre code personnel</h2>
+  <input type="text" id="code" placeholder="Ex: EB001" />
   <button onclick="verifierCode()">Valider</button>
-  <p class="erreur" id="erreurMsg"></p>
+  <div id="erreur"></div>
 
   <script>
-    const codesAutorises = ["EB001", "EB002", "EB003", "EB004"];
+    let codes = [];
+
+    fetch('codes_autorises.json')
+      .then(response => response.json())
+      .then(data => {
+        codes = data;
+      })
+      .catch(error => {
+        document.getElementById("erreur").innerText = "Erreur de chargement des codes.";
+      });
 
     function verifierCode() {
-      const codeEntre = document.getElementById("code").value.trim();
-      const erreurMsg = document.getElementById("erreurMsg");
-
-      if (codesAutorises.includes(codeEntre)) {
-        localStorage.setItem("code_acces", codeEntre); // mémorise le code
-        window.location.href = "formations_secrets.hlmt";
+      const codeSaisi = document.getElementById("code").value.trim();
+      if (codes.includes(codeSaisi)) {
+        window.location.href = "formations_secretes.html?code=" + codeSaisi;
       } else {
-        erreurMsg.textContent = "Code invalide.";
+        document.getElementById("erreur").innerText = "Code invalide ou non reconnu.";
       }
     }
   </script>
+
 </body>
 </html>
